@@ -525,12 +525,12 @@ public class BottomNavigationBar extends FrameLayout {
         if (mSelectedPosition != newPosition) {
             if (mBackgroundStyle == BACKGROUND_STYLE_STATIC) {
                 if (mSelectedPosition != -1)
-                    mBottomNavigationTabs.get(mSelectedPosition).unSelect(true, mAnimationDuration);
-                mBottomNavigationTabs.get(newPosition).select(true, mAnimationDuration);
+                    mBottomNavigationTabs.get(mSelectedPosition).unSelect(true);
+                mBottomNavigationTabs.get(newPosition).select(true);
             } else if (mBackgroundStyle == BACKGROUND_STYLE_RIPPLE) {
                 if (mSelectedPosition != -1)
-                    mBottomNavigationTabs.get(mSelectedPosition).unSelect(false, mAnimationDuration);
-                mBottomNavigationTabs.get(newPosition).select(false, mAnimationDuration);
+                    mBottomNavigationTabs.get(mSelectedPosition).unSelect(false);
+                mBottomNavigationTabs.get(newPosition).select(false);
 
                 final BottomNavigationTab clickedView = mBottomNavigationTabs.get(newPosition);
                 if (firstTab) {

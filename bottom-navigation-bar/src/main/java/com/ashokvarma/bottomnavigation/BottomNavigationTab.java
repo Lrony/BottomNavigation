@@ -167,6 +167,21 @@ abstract class BottomNavigationTab extends FrameLayout {
         }
     }
 
+    public void select(boolean setActiveColor) {
+        isActive = true;
+
+        iconView.setSelected(true);
+        if (setActiveColor) {
+            labelView.setTextColor(mActiveColor);
+        } else {
+            labelView.setTextColor(mBackgroundColor);
+        }
+
+        if (badgeItem != null) {
+            badgeItem.select();
+        }
+    }
+
     public void unSelect(boolean setActiveColor, int animationDuration) {
         isActive = false;
 
@@ -182,6 +197,17 @@ abstract class BottomNavigationTab extends FrameLayout {
         });
         animator.setDuration(animationDuration);
         animator.start();
+
+        labelView.setTextColor(mInActiveColor);
+        iconView.setSelected(false);
+
+        if (badgeItem != null) {
+            badgeItem.unSelect();
+        }
+    }
+
+    public void unSelect(boolean setActiveColor) {
+        isActive = false;
 
         labelView.setTextColor(mInActiveColor);
         iconView.setSelected(false);
